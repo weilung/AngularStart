@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  @Output() keywordChuang = new EventEmitter<string>();
   keyword = 'test';
 
   constructor() { }
@@ -18,9 +19,10 @@ export class HeaderComponent implements OnInit {
   fontSize = 24;
 
   search($event : MouseEvent) {
-    console.log($event.altKey);
-    this.highlightTitle = !this.highlightTitle;
-    ++this.fontSize;
+    //console.log($event);
+    // this.highlightTitle = !this.highlightTitle;
+    // ++this.fontSize;
+    this.keywordChuang.emit(this.keyword);
   }
 
 }
