@@ -12,4 +12,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  search($event : MouseEvent) {
+    console.log($event.altKey);
+  }
+
 }
