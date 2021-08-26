@@ -7,15 +7,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-keyword = 'test';
+  keyword = 'test';
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  highlightTitle = false;
+  fontSize = 24;
+
   search($event : MouseEvent) {
     console.log($event.altKey);
+    this.highlightTitle = !this.highlightTitle;
+    ++this.fontSize;
   }
 
 }
