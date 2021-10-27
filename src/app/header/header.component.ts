@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ArticlesService } from '../articles.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +8,10 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  @Output() keywordChuang = new EventEmitter<string>();
+  // @Output() keywordChuang = new EventEmitter<string>();
   keyword = 'test';
 
-  constructor() { }
+  constructor(private articlesService: ArticlesService) { }
 
   ngOnInit(): void {
   }
@@ -22,7 +23,8 @@ export class HeaderComponent implements OnInit {
     //console.log($event);
     // this.highlightTitle = !this.highlightTitle;
     // ++this.fontSize;
-    this.keywordChuang.emit(this.keyword);
+    // this.keywordChuang.emit(this.keyword);
+    this.articlesService.searchArticles(this.keyword);
   }
 
 }
